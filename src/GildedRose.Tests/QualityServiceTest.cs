@@ -106,7 +106,7 @@ namespace GildedRose.Test
             Assert.AreEqual(items[4].Quality, 21);
             Assert.AreEqual(items[4].SellIn, 14);
             // "Conjured Mana Cake"
-            Assert.AreEqual(items[5].Quality, 5);
+            Assert.AreEqual(items[5].Quality, 4); //Changed from 5 to 4 because of the CR
             Assert.AreEqual(items[5].SellIn, 2);
         }
     }

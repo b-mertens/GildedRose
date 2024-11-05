@@ -136,7 +136,9 @@ namespace GildedRose.Engine
                     }
                     else
                     {
-                        item.Quality -= (item.SellIn < 0 ? 2 : 1);
+                        var qualityDecreaseIndex = smartItem.IsDegradingFast ? 2 : 1;
+                        //Once the sell by date has passed, Quality degrades twice as fast
+                        item.Quality -= (item.SellIn < 0 ? 2 : 1) * qualityDecreaseIndex;
                     }
                 }
                 // The Quality of an item is never negative
