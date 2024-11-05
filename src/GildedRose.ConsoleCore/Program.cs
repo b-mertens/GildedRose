@@ -25,7 +25,6 @@ var items = new List<Item>
             },
             new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
         };
-    }  
 
 var qualityService = serviceProvider.GetService<IQualityService>();
 var result = await qualityService.UpdateQualityAsync(items);
