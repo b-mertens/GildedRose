@@ -10,7 +10,12 @@ namespace GildedRose.Engine
 {
     internal class QualityService : IQualityService
     {
-        public async Task<List<Item>> UpdateQualityAsync(List<Item> Items)
+        public void UpdateQuality(List<Item> Items)
+        {
+            _ = UpdateQualityAsync(Items).Result; 
+        }
+
+        public async Task<bool> UpdateQualityAsync(List<Item> Items)
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -84,7 +89,7 @@ namespace GildedRose.Engine
                     }
                 }
             }
-            return Items;
+            return true;
         }
     }
 }
