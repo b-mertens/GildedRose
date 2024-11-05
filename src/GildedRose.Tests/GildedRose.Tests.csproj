@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\GildedRose.Engine\GildedRose.Engine.csproj" />
-    <ProjectReference Include="..\src\GildedRose.Models\GildedRose.Models.csproj" />
+    <ProjectReference Include="..\GildedRose.Engine\GildedRose.Engine.csproj" />
+    <ProjectReference Include="..\GildedRose.Models\GildedRose.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
