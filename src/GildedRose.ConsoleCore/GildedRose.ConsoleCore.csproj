@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GildedRose.DAL\GildedRose.Data.csproj" />
     <ProjectReference Include="..\GildedRose.Engine\GildedRose.Engine.csproj" />
   </ItemGroup>
 
