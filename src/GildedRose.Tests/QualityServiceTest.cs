@@ -110,5 +110,48 @@ namespace GildedRose.Test
             Assert.AreEqual(items[5].Quality, 4); //Changed from 5 to 4 because of the CR
             Assert.AreEqual(items[5].SellIn, 2);
         }
+
+        [TestMethod]
+        public void ValidateOldAndNewFixedProgramData()
+        {
+            var items = new List<Item>
+            {
+                new Item {Name = ProductNames.DexterityVest , SellIn = 10, Quality = 20},
+                new Item {Name = ProductNames.AgedBrie, SellIn = 2, Quality = 0},
+                new Item {Name = ProductNames.ElixirMongoose, SellIn = 5, Quality = 7},
+                new Item {Name = ProductNames.Sulfuras, SellIn = 0, Quality = 80},
+                new Item
+                {
+                    Name = ProductNames.BackstagePasses,
+                    SellIn = 15,
+                    Quality = 20
+                },
+                new Item {Name = ProductNames.Conjured, SellIn = 3, Quality = 6}
+            };
+            new Services().GetService<IQualityService>().UpdateQuality(items, false);
+
+            var oldItems = new List<Item>
+            {
+                new Item {Name = ProductNames.DexterityVest , SellIn = 10, Quality = 20},
+                new Item {Name = ProductNames.AgedBrie, SellIn = 2, Quality = 0},
+                new Item {Name = ProductNames.ElixirMongoose, SellIn = 5, Quality = 7},
+                new Item {Name = ProductNames.Sulfuras, SellIn = 0, Quality = 80},
+                new Item
+                {
+                    Name = ProductNames.BackstagePasses,
+                    SellIn = 15,
+                    Quality = 20
+                },
+                new Item {Name = ProductNames.Conjured, SellIn = 3, Quality = 6}
+            };
+            new Services().GetService<IQualityService>().UpdateQualityOriginal(oldItems);
+
+            for(int i = 0; i < items.Count; i++)
+            {
+                Assert.AreEqual(items[i].Name, oldItems[i].Name);
+                Assert.AreEqual(items[i].Quality, oldItems[i].Quality);
+                Assert.AreEqual(items[i].SellIn, oldItems[i].SellIn);
+            }
+        }
     }
 }

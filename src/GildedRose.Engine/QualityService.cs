@@ -11,13 +11,18 @@ namespace GildedRose.Engine
 {
     internal class QualityService : IQualityService
     {
-        public void UpdateQuality(List<Item> Items)
+        public void UpdateQuality(List<Item> Items, bool handleFastDegrading = true)
         {
-            _ = UpdateQualityAsync(Items).Result; 
+            _ = UpdateQualityAsync(Items, handleFastDegrading).Result; 
+        }
+
+        public void UpdateQualityOriginal(List<Item> Items)
+        {
+            _ = UpdateQualityOriginalAsync(Items).Result;
         }
 
         [Obsolete("This method is obsolete, use UpdateQualityAsync instead")]
-        public async Task<bool> UpdateQualityOldAsync(List<Item> Items)
+        public async Task<bool> UpdateQualityOriginalAsync(List<Item> Items)
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -93,7 +98,8 @@ namespace GildedRose.Engine
             }
             return true;
         }
-        public async Task<bool> UpdateQualityAsync(List<Item> Items)
+
+        public async Task<bool> UpdateQualityAsync(List<Item> Items, bool handleFastDegrading = true)
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -136,7 +142,7 @@ namespace GildedRose.Engine
                     }
                     else
                     {
-                        var qualityDecreaseIndex = smartItem.IsDegradingFast ? 2 : 1;
+                        var qualityDecreaseIndex = handleFastDegrading && smartItem.IsDegradingFast ? 2 : 1;
                         //Once the sell by date has passed, Quality degrades twice as fast
                         item.Quality -= (item.SellIn < 0 ? 2 : 1) * qualityDecreaseIndex;
                     }

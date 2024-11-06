@@ -10,8 +10,9 @@ namespace GildedRose.Interfaces.Engine
 {
     public  interface IQualityService
     {
-        Task<bool> UpdateQualityAsync(List<Item> Items);
+        Task<bool> UpdateQualityAsync(List<Item> Items, bool handleFastDegrading = true);
 
-        void UpdateQuality(List<Item> Items);
+        void UpdateQuality(List<Item> Items, bool handleFastDegrading = true);
+        void UpdateQualityOriginal(List<Item> Items);
     }
 }
