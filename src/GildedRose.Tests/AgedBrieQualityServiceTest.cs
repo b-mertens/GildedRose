@@ -1,4 +1,5 @@
 ﻿using GildedRose.Interfaces.Engine;
+using GildedRose.Models.General;
 using GildedRose.Models.Models;
 using GildedRose.Test.Setup;
 using System;
@@ -18,7 +19,7 @@ namespace GildedRose.Test
         public void ValidateQualityIncrease(int quality)
         {
             var items = new List<Item>{
-                new Item { Name = "Aged Brie", SellIn = 10, Quality = quality}
+                new Item { Name = ProductNames.AgedBrie, SellIn = 10, Quality = quality}
             };
 
             new Services().GetService<IQualityService>().UpdateQuality(items);
@@ -31,7 +32,7 @@ namespace GildedRose.Test
         public void ValidateQualityAbove50(int quality)
         {
             var items = new List<Item>{
-                new Item { Name = "Aged Brie", Quality = quality}
+                new Item { Name = ProductNames.AgedBrie, Quality = quality}
             };
 
             new Services().GetService<IQualityService>().UpdateQuality(items);

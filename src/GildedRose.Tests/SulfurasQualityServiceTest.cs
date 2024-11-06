@@ -1,4 +1,5 @@
 ﻿using GildedRose.Interfaces.Engine;
+using GildedRose.Models.General;
 using GildedRose.Models.Models;
 using GildedRose.Test.Setup;
 using System;
@@ -17,7 +18,7 @@ namespace GildedRose.Test
         public void ValidateUnchangeSellIn(int sellIn)
         {
             var items = new List<Item>{
-                new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = 20}
+                new Item {Name = ProductNames.Sulfuras, SellIn = sellIn, Quality = 20}
             };
 
             new Services().GetService<IQualityService>().UpdateQuality(items);
@@ -30,7 +31,7 @@ namespace GildedRose.Test
         public void ValidateUnchangeQuality(int quality)
         {
             var items = new List<Item>{
-                new Item {Name = "Sulfuras, Hand of Ragnaros", Quality = quality}
+                new Item {Name = ProductNames.Sulfuras, Quality = quality}
             };
 
             new Services().GetService<IQualityService>().UpdateQuality(items);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GildedRose.Models.General;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace GildedRose.Models.Models
         {
             get
             {
-                return Name?.Equals("Aged Brie", StringComparison.OrdinalIgnoreCase) ?? false;
+                return Name?.Equals(ProductNames.AgedBrie, StringComparison.OrdinalIgnoreCase) ?? false;
             }
         }
         /// <summary>
@@ -32,7 +33,7 @@ namespace GildedRose.Models.Models
         {
             get
             {
-                return Name?.Equals("Sulfuras, Hand of Ragnaros", StringComparison.OrdinalIgnoreCase) ?? false;
+                return Name?.Equals(ProductNames.Sulfuras, StringComparison.OrdinalIgnoreCase) ?? false;
             }
         }
 
@@ -43,7 +44,7 @@ namespace GildedRose.Models.Models
         {
             get
             {
-                return Name?.Equals("Backstage passes to a TAFKAL80ETC concert", StringComparison.OrdinalIgnoreCase) ?? false;
+                return Name?.Equals(ProductNames.BackstagePasses, StringComparison.OrdinalIgnoreCase) ?? false;
             }
         }
 
@@ -54,7 +55,7 @@ namespace GildedRose.Models.Models
         {
             get
             {
-                return Name?.Equals("Conjured Mana Cake", StringComparison.OrdinalIgnoreCase) ?? false;
+                return Name?.Equals(ProductNames.Conjured, StringComparison.OrdinalIgnoreCase) ?? false;
             }
         }
 
